@@ -9,10 +9,8 @@ public:
         }
         count = ct[deck[0]];
         for(auto it:ct){
-            cout << it.second;
            count = gcd(count, it.second);
         }
-        cout << count;
         if(count == 1) return false;
         return true;
     }
