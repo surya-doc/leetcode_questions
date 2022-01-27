@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool hasGroupsSizeX(vector<int>& deck) {
-        map<int, int>ct;
+        unordered_map<int, int>ct;
         int count;
         if(deck.size() <= 1) return false;
         for(auto i:deck){
