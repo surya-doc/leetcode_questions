@@ -1,19 +1,10 @@
 class Solution {
 public:
     int maximumScore(int a, int b, int c) {
-        int y = 3;
-        int ans = 0;
-        vector<int>stor;
-        stor.push_back(a);
-        stor.push_back(b);
-        stor.push_back(c);
-        sort(stor.begin(), stor.end());
-        while((stor[0] != 0 || stor[1] != 0)){
-            stor[2] = stor[2]-1;
-            stor[1] = stor[1]-1;
-            ans++;
-            sort(stor.begin(), stor.end());
-        }
-        return ans;
+        int max_val = max({a, b, c});
+        int sum_up = a+b+c;
+        int small_two_sum = sum_up-max_val;
+        if(max_val >= small_two_sum) return small_two_sum;
+        else return (sum_up)/2;
     }
 };
