@@ -7,7 +7,6 @@ var hasAlternatingBits = function(n) {
     var last = n&1;
     n>>=1; 
     while(n>0){
-        console.log((n&1), last, (n&1)^last, "\n");
         if(!(n&1)^last){
             return false;
         }
