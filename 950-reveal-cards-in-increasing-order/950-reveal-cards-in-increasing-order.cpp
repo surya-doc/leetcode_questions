@@ -4,7 +4,6 @@ public:
         int siz = deck.size();
         deque<int>dq;
         vector<int>ans(siz);
-        vector<int>track;
         sort(deck.begin(), deck.end());
         for(int i=0; i<siz; i++){
             dq.push_back(i);
