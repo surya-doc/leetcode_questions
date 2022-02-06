@@ -11,7 +11,6 @@ public:
             else steps = calCulatePower(num/2, steps, mp)+1;
         }
         mp[num] = steps;
-        // cout << num << "->" << steps << " ";
         return steps;
     }
     
