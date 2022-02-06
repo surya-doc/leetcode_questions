@@ -28,14 +28,6 @@ public:
             stor.push_back({temp, i});
         }
         sort(stor.begin(), stor.end(), sort_1);
-        int i = 1;
-        for(auto it:stor){
-            if(i == k){
-                ans = it[1];
-                break;
-            }
-            i++;
-        }
-        return ans;
+        return stor[k-1][1];
     }
 };
