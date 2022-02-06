@@ -1,8 +1,6 @@
 class Solution {
 public:
     string customSortString(string order, string s) {
-        string ans = "";
-        string rest = "";
         int flag = 0;
         for(int i=0; i<order.length(); i++){
             int j = 0;
