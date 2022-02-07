@@ -25,7 +25,7 @@ public:
         sort(stor.begin(), stor.end(), orderNumber);
         string a;
         for(auto it:stor){
-            a += string(it.second, it.first);
+            a.append(it.second, it.first);
         }
         return a;
     }
