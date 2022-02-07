@@ -22,15 +22,11 @@ public:
         else{
             stor.push_back({s[i], count+1});
         }
-        for(auto it:stor){
-            cout << it.first << " " << it.second << "\n";
-        }
         sort(stor.begin(), stor.end(), orderNumber);
         string a;
         for(auto it:stor){
             a += string(it.second, it.first);
         }
-        cout << a;
         return a;
     }
 };
