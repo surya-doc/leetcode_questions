@@ -4,7 +4,7 @@ public:
     int siz = tasks.size();
     if(n == 0) return siz;
     priority_queue<pair<int, char>>pq;
-    map<char, int>mp;
+    unordered_map<char, int>mp;
     for(auto it:tasks){
         mp[it]++;
     }
