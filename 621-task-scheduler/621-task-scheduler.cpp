@@ -11,19 +11,19 @@ public:
     for(auto it:mp){
         pq.push({it.second, it.first});
     }
-    vector<char>ans;
+    int ans = 0;
     while(pq.size() > 0){
         int temp = n;
         vector<pair<int, char>>stor;
         while(temp >= 0){
             if(siz == 0) break;
             if(pq.size() == 0){
-                ans.push_back('i');
+                ans++;
             }
             else{
                 pair<int, char>t1 = pq.top();
                 pq.pop();
-                ans.push_back(t1.second);
+                ans++;
                 stor.push_back({t1.first-1, t1.second});
                 siz--;
             }
@@ -37,6 +37,6 @@ public:
 
         }
     }
-    return ans.size();
+    return ans;
 }
 };
