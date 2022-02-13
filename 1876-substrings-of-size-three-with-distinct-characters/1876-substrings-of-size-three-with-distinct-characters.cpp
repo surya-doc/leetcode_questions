@@ -4,10 +4,8 @@ public:
         set<char>st;
         for(int a=j; a<=i; a++){
             if(st.find(s[a]) != st.end()){
-                cout << j << i << " ";
                 return false;
             }
-            // int a = st.find('x');
             st.insert(s[a]);
         }
         return true;
