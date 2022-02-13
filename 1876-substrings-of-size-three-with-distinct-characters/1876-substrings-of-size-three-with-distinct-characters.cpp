@@ -15,8 +15,6 @@ public:
         int j = 0;
         int ans = 0;
         for(; i<s.length(); i++,j++){
-            cout << j;
-            cout << s[j] << s[j+1] << s[i] << " ";
             if(s[j] != s[j+1] && s[j] != s[i] && s[j+1] != s[i]) ans++;
         }
         return ans;
