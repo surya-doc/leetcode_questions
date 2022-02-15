@@ -25,18 +25,22 @@ public:
 	        check[pat[a]]++;
 	    }
 	    int ans = 0;
+	    int size = check.size();
 	    map<char, int>stor;
 	    int i = 0;
 	    int j = 0;
 	    for(; j<txt.size(); j++){
+	        check[txt[j]]--;
+	        if(check[txt[j]] == 0) size--;
+	       // for(auto it:check){
+	       //     cout << it.first << "->" << it.second << " ";
+	       // }
+	       // cout << "\n";
 	        if(j-i+1 == k){
-	            stor[txt[j]]++;
-	            if(match(check, stor)) ans++;
-	            stor[txt[i]]--;
+	            if(size == 0) ans++;
+	            if((check[txt[i]] && check[txt[i]]==0) || !check[txt[i]]) size++;
+	            check[txt[i]]++;
 	            i++;
-	        }
-	        else{
-	            stor[txt[j]]++;
 	        }
 	    }
 	    return ans;
