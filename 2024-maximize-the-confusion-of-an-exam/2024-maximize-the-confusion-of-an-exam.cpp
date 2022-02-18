@@ -11,7 +11,6 @@ public:
         
         for(; j<n; j++){
             if(answerKey[j] == 'F'){
-                cout << k1+1 << " ";
                 if(k1 < k){
                     k1++;
                 }
@@ -23,11 +22,8 @@ public:
                     k1++;
                 }
             }
-            // cout << i << " " << j << "\n";
-            temp_count = (j-i+1);
-            count = max(count, temp_count);
+            count = max(count, j-i+1);
         }
-        cout << count << " ";
         //find maximum length sub string of F containing k number of T
         i=0, j=0;
         int count_for_f = 0;
@@ -36,7 +32,6 @@ public:
         
         for(; j<n; j++){
             if(answerKey[j] == 'T'){
-                cout << k1+1 << " ";
                 if(k1 < k){
                     k1++;
                 }
@@ -48,11 +43,8 @@ public:
                     k1++;
                 }
             }
-            // cout << i << " " << j << "\n";
-            temp_count_f = (j-i+1);
-            count_for_f = max(count_for_f, temp_count_f);
+            count_for_f = max(count_for_f, j-i+1);
         }
-//         cout << count_for_f << " ";
         return max(count, count_for_f);
     }
 };
