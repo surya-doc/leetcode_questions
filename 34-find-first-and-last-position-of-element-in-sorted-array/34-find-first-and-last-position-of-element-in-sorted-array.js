@@ -9,7 +9,6 @@ function sendPos(nums, target, di, n){
     var returnable = -1;
     while(l <= r){
         var mid = l+(r-l)//2;
-        console.log(mid);
         if(nums[mid] === target){
             if(di){
                 returnable = mid;
@@ -27,7 +26,6 @@ function sendPos(nums, target, di, n){
             l = mid+1;
         }
     }
-    console.log(returnable);
     return returnable;
 }
 var searchRange = function(nums, target) {
