@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool check(vector<int> &piles, int mid, int h){
-        cout << mid << " ";
         int n = piles.size();
         int total_hr = 0;
         for(int i=0; i<n; i++){
@@ -20,10 +19,8 @@ public:
             int mid = l+(r-l)/2;
             int temp = check(piles, mid, h);
             if(temp){
-                // cout << mid;
                 r = mid-1;
                 ans = min(ans, mid);
-                // cout << ans;
             }
             else{
                 l = mid+1;
