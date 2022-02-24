@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValid(vector<int> &nums, int mid, int m){
-        cout << mid << " " << "\n";
+        // cout << mid << " " << "\n";
         int sum = 0;
         int subL = 1;
         for(int i=0; i<nums.size(); i++){
@@ -12,7 +12,7 @@ public:
                 sum = nums[i];
             }
         }
-        cout << "\n";
+        // cout << "\n";
         if(subL <= m) return true;
         return false;
     }
