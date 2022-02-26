@@ -11,7 +11,6 @@ public:
         string ans = "";
         for(int i=0; i<s.length(); i++){
             if(!st.empty() && (st.top()+32 == s[i] || st.top()-32 == s[i])){
-                cout << s[i];
                 st.pop();
             }
             else{
