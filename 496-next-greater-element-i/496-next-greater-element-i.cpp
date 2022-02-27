@@ -11,7 +11,6 @@ public:
             while(!st.empty() && (st.top() <= nums2[i])){
                 st.pop();
             }
-            cout << nums2[i];
             if(mp[nums2[i]]){
                 mp[nums2[i]] = st.empty() ? -1 : st.top();
             }
