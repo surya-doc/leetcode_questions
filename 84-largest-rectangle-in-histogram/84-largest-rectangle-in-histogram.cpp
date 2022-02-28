@@ -1,23 +1,5 @@
 class Solution {
 public:
-    int getLeftMin(vector<int> &h, int num){
-        int i = num;
-        if(num == 0) return 0;
-        for(; i>=0; i--){
-            if(h[i] < h[num]) break;
-        }
-        return i+1;
-    }
-    
-    int getRightMin(vector<int> &h, int num){
-        int i = num;
-        if(num == h.size()-1) return h.size()-1;
-        for(; i<h.size(); i++){
-            if(h[i] < h[num]) break;
-        }
-        return i-1;
-    }
-    
     int largestRectangleArea(vector<int>& h) {
         int ans = -1;
         vector<int>l(h.size());
