@@ -11,7 +11,6 @@ public:
             else{
                 ans += st.top() + max(ans, 1);
                 st.pop();
-            cout << ans << " ";
             }
         }
         return ans;
