@@ -16,11 +16,6 @@ public:
                 stor.pop();
                 j++;
             }
-        stack<int>temp = stor;
-        while(!temp.empty()){
-            cout << temp.top();
-            temp.pop();
-        }
         return stor.empty();
     }
 };
