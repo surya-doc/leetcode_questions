@@ -13,9 +13,9 @@ public:
             stor.push(pushed[i]);
         }
         while(!stor.empty() && stor.top() == popped[j]){
-                stor.pop();
-                j++;
-            }
+            stor.pop();
+            j++;
+        }
         return stor.empty();
     }
 };
