@@ -8,12 +8,10 @@ public:
                 mp[s[i]] = i+1;
             }
             else{
-                cout << s[i];
                 mp[s[i]] = -1;
             }
         }
         for(auto it:mp){
-            cout << it.first << "->" << it.second << "\n";
             if(it.second != -1){
                 if(ans != -1){
                     ans = min(ans, it.second-1);
