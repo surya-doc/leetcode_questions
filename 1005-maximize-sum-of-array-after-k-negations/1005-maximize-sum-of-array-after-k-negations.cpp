@@ -9,18 +9,22 @@ public:
             i++;
             k--;
         }
+            int temp_min = INT_MAX;
+            for(auto it:nums){
+                temp_min = min(temp_min, it);
+                sum += it;
+            }
         if(k>0){
-            sort(nums.begin(), nums.end());
+            cout << sum;
             if(k%2 == 0){
                 k = 0;
             }
             else{
-                nums[0] = -nums[0];
+                sum -= temp_min;
+                temp_min = -temp_min;
+                sum += temp_min;
                 k = 0;
             }
-        }
-        for(auto it:nums){
-            sum += it;
         }
         return sum;
     }
