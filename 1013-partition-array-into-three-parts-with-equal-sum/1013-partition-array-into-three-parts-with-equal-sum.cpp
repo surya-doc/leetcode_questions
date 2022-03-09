@@ -9,11 +9,9 @@ public:
         }
         if(sum%3 != 0) return false;
         sum = sum/3;
-        cout << sum;
         int temp = 0;
         for(int i=0; i<arr.size(); i++){
             temp += arr[i];
-            cout << temp;
             if(temp == sum){
                 count++;
                 temp = 0;
