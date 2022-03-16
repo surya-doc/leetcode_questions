@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
-        map<char, int>mp;
+        unordered_map<char, int>mp;
         int n = s.size();
         for(int i=0; i<n; i++){
             mp[s[i]] = i;
@@ -16,9 +16,7 @@ public:
                     max_1 = mp[s[j]];
                     a = max_1;
                 }
-                cout << max_1 << " ";
             }
-        cout << "\n";
             ans.push_back(max_1-prev+1);
             prev = max_1;
             i = max_1+1;
