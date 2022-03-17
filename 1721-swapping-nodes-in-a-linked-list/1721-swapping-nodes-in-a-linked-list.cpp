@@ -30,7 +30,6 @@ public:
         int temp = p->val;
         p->val = q->val;
         q->val = temp;
-        cout << q->val;
         return head;
     }
 };
