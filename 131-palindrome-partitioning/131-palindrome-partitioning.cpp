@@ -22,12 +22,12 @@ public:
         for(int i=sz; i<s.size(); i++){
             string tem_str = s.substr(sz, i-sz+1);
             if(mp[tem_str]){
-                temp.push_back(s.substr(sz, i-sz+1));
+                temp.push_back(tem_str);
                 getTheSubS(s, ans, temp, i+1, mp);
                 temp.pop_back();
             }
             else if(isPalindrome(s, sz, i, mp)){
-                temp.push_back(s.substr(sz, i-sz+1));
+                temp.push_back(tem_str);
                 getTheSubS(s, ans, temp, i+1, mp);
                 temp.pop_back();
             }
