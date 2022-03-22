@@ -1,14 +1,12 @@
 class Solution {
 public:
     string makeAns(string ans, int k, vector<int> &org, int fact){
-        cout << fact;
         if(org.size() == 0 || fact == 0) return ans;
         ans += to_string(org[k/fact]);
         // cout << ans;
         org.erase(org.begin()+k/fact);
         if(org.size() == 0) return ans;
         k = k%fact;
-        cout << org.size();
         fact = fact/org.size();
         return makeAns(ans, k, org, fact);
     }
