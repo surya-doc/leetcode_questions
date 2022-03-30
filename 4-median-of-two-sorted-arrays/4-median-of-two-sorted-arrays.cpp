@@ -1,89 +1,44 @@
 class Solution {
 public:
-    int getTheNextEle(vector<int>& nums1, vector<int>& nums2, int p, int q){
-        int l1 = nums1.size();
-        int l2 = nums2.size();
-        while(p<l1 && q<l2){
-            if(nums1[p] <= nums2[q]){
-                return nums1[p++];
+    int kthElement(vector<int> &arr1, vector<int> &arr2, int n, int m, int k)
+    {
+        if(n>m){
+            kthElement(arr2, arr1, m, n, k);
+        }
+        int l = max(0, k-m);
+        int r = min(k, n);
+        int ans;
+        while(l <= r){
+            int cut1 = (r+l)/2;
+            int cut2 = k-cut1;
+            int l1 = cut1 == 0 ? INT_MIN : arr1[cut1-1];
+            int l2 = cut2 == 0 ? INT_MIN : arr2[cut2-1];
+            int r1 = cut1 == n ? INT_MAX : arr1[cut1];
+            int r2 = cut2 == m ? INT_MAX : arr2[cut2];
+            if(l1 <= r2 && l2 <= r1){
+                return max(l1, l2);
+            }
+            else if(l1 > r2){
+                r = cut1-1;
             }
             else{
-                return nums2[q++];
+                l = cut1+1;
             }
         }
-        if(p<l1){
-            return nums1[p++];
-        }
-        return nums2[q++];
+        return 1;
     }
-    
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        int l1 = nums1.size();
-        int l2 = nums2.size();
-        int mid1 = (l1+l2-1)/2;
-        double ans = 0;
-        int p = 0;
-        int q = 0;
-        int counter = -1;
-        int temp;
-        while(p<l1 && q<l2){
-            if(nums1[p] <= nums2[q]){
-                temp = nums1[p++];
-                counter++;
-            }
-            else{
-                temp = nums2[q++];
-                counter++;
-            }
-            if(counter == mid1){
-                ans += temp;
-                if((l1+l2)%2 == 0){
-                    if(p<l1 && q<l2){
-                        ans += min(nums1[p], nums2[q]);
-                    }
-                    else if(p<l1){
-                        ans += nums1[p];
-                    }
-                    else if(q<l2){
-                        ans += nums2[q];
-                    }
-                }
-                break;
-            }
+        int n = nums1.size();
+        int m = nums2.size();
+        double ans;
+        if((n+m)%2 != 0){
+            ans = kthElement(nums1, nums2, n, m, (n+m)/2+1);
         }
-        while(p<l1){
-            temp = nums1[p++];
-            counter++;
-            if(counter == mid1){
-                ans += temp;
-                if((l1+l2)%2 == 0){
-                    if(p<l1){
-                        ans += nums1[p];
-                    }
-                    else if(q<l2){
-                        ans += nums2[q];
-                    }
-                }
-                break;
-            }
+        else{
+            int temp = kthElement(nums1, nums2, n, m, (n+m)/2+1);
+            cout << "*" << temp;
+            ans = (kthElement(nums1, nums2, n, m, (n+m)/2+1) + kthElement(nums1, nums2, n, m, (n+m)/2))/2.0;
         }
-        
-        while(q<l2){
-            temp = nums2[q++];
-            counter++;
-            if(counter == mid1){
-                ans += temp;
-                if((l1+l2)%2 == 0){
-                    if(p<l1){
-                        ans += nums1[p];
-                    }
-                    else if(q<l2){
-                        ans += nums2[q];
-                    }
-                }
-                break;
-            }
-        }
-        return (l1+l2)%2 == 0 ? ans/2 : ans;
+        return ans;
     }
 };
