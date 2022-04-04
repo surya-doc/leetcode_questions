@@ -8,9 +8,6 @@ public:
             while(pq.top().second < i-k+1){
                 pq.pop();
             }
-            // cout << nums[i] << pq.top() << " ";
-            // cout << pq.top().first;
-            cout << pq.size();
             if(i >= k-1){
                 ans.push_back(pq.top().first); 
             }
