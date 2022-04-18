@@ -20,9 +20,31 @@ public:
         getInOrderTree(root->right, ans);
     }
     
+    void inOrder(TreeNode* root, vector<int> &ans){
+        stack<TreeNode*> st;
+        TreeNode* Node = root;
+        // st.push(root);
+        while(true){
+            if(Node != nullptr){
+                st.push(Node);
+                Node = Node->left;
+            }
+            else{
+                
+            if(st.empty() == true) break;
+            Node = st.top();
+            st.pop();
+            ans.push_back(Node->val);
+            Node = Node->right;  
+            }
+        }
+    }
+    
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> ans;
-        getInOrderTree(root, ans);
+        if(!root) return ans;
+        // getInOrderTree(root, ans);
+        inOrder(root, ans);
         return ans;
     }
 };
