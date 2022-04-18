@@ -20,9 +20,27 @@ public:
         getPreTree(root->right, ans);
     }
     
+    void iterative(TreeNode* root, vector<int> &ans){
+        stack<TreeNode*> temp;
+        temp.push(root);
+        while(!temp.empty()){
+            TreeNode* a = temp.top();
+            temp.pop();
+            ans.push_back(a->val);
+            if(a->right){
+                temp.push(a->right);
+            }
+            if(a->left){
+                temp.push(a->left);
+            }
+        }
+    }
+    
     vector<int> preorderTraversal(TreeNode* root) {
         vector<int> ans;
-        getPreTree(root, ans);
+        // getPreTree(root, ans);
+        if(!root) return ans;
+        iterative(root, ans);
         return ans;
     }
 };
