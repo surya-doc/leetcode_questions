@@ -23,12 +23,6 @@ public:
     
     int getCount(TreeNode* root){
         if(!root) return 0;
-        if(root->left == NULL && root->right == NULL){
-            return 1;
-        }
-        // if(root->left != NULL && root->right == NULL){
-        //     return 2;
-        // }
         int lheight = getLHeight(root->left);
         int rheight = getRHeight(root->right);
         if(lheight == rheight){
