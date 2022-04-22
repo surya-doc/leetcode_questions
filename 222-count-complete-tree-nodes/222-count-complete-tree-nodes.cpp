@@ -31,7 +31,6 @@ public:
         // }
         int lheight = getLHeight(root->left);
         int rheight = getRHeight(root->right);
-        cout << lheight << " " << rheight << "\n";
         if(lheight == rheight){
             return pow(2, 1+(lheight))-1;
         }
