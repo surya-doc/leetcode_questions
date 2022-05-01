@@ -23,9 +23,6 @@ public:
     int kthSmallest(TreeNode* root, int k) {
         vector<int> stor;
         getPree(root, stor);
-        for(auto it:stor){
-            cout << it;
-        }
         return stor[k-1];
     }
 };
