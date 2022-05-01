@@ -11,18 +11,24 @@
  */
 class Solution {
 public:
-    void getPree(TreeNode* root, vector<int> &stor){
+    int ans = 0;
+    void getPree(TreeNode* root, vector<int> &stor, int &check){
         if(!root){
             return;
         }
-        getPree(root->left, stor);
-        stor.push_back(root->val);
-        getPree(root->right, stor);
+        getPree(root->left, stor, check);
+        // stor.push_back(root->val);
+        check--;
+        if(check == 0){
+            ans = root->val;
+        }
+        getPree(root->right, stor, check);
     }
     
     int kthSmallest(TreeNode* root, int k) {
         vector<int> stor;
-        getPree(root, stor);
-        return stor[k-1];
+        getPree(root, stor, k);
+        // return stor[k-1];
+        return ans;
     }
 };
