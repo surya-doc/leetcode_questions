@@ -1,26 +1,28 @@
 class Solution {
 public:
+    int dp[201][10001];
+    
+    int getAns(vector<int> &nums, int n, int ans){
+        if(ans==0)
+            return 1;
+        if(n==0)
+            return 0;
+        if(dp[n][ans]!=-1)  
+            return dp[n][ans];
+        if(nums[n-1]<=ans)
+            return dp[n][ans]=getAns(nums,n-1,ans-nums[n-1])||getAns(nums,n-1,ans);
+        
+        return dp[n][ans]=getAns(nums,n-1,ans);
+    }
+    
     bool canPartition(vector<int>& nums) {
-        int sum = 0;
+        int ans = 0;
         for(int i=0; i<nums.size(); i++){
-            sum += nums[i];
+            ans += nums[i];
         }
-        if(sum%2 != 0) return false;
-        int n = nums.size();
-        sum /= 2;
-        bool dp[n+1][sum+1];
-        for(int i=0; i<=n; i++){
-            for(int j=0; j<=sum; j++){
-                if(i == 0) dp[i][j] = false;
-                else if(j == 0) dp[i][j] = true;
-                else if(j >= nums[i-1]){
-                    dp[i][j] = dp[i-1][j]|dp[i-1][j-nums[i-1]];
-                }
-                else{
-                    dp[i][j] = dp[i-1][j];
-                }  
-            }
-        }
-        return dp[n][sum];
+        if(ans%2 != 0) return false;
+        ans /= 2;
+        memset(dp, -1, sizeof(dp));
+        return getAns(nums, nums.size()-1, ans);
     }
 };
