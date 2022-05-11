@@ -10,9 +10,12 @@ class Solution{
 	{
        int tab[n + 1][sum + 1];
   // Initializing the first value of matrix
-    tab[0][0] = 1;
+    // tab[0][0] = 1;
     for (int i = 1; i <= sum; i++)
         tab[0][i] = 0;
+    for(int i=0; i<=n; i++){
+        tab[i][0] = 1;
+    }
      
      long long modul = 1e9 + 7;
    
