@@ -3,7 +3,7 @@ public:
     int maximumUniqueSubarray(vector<int>& nums) {
         int ans = 0;
         int a=0;
-        map<int, int> mp;
+        unordered_map<int, int> mp;
         int temp_sum = 0;
         for(int i=0; i<nums.size(); i++){
             if(!mp[nums[i]]){
