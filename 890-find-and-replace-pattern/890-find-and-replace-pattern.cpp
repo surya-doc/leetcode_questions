@@ -18,7 +18,6 @@ public:
             temp1 += mp1[s1[i]];
             temp2 += mp2[s2[i]];
         }
-        cout << temp1 << " " << temp2 << "\n";
         if(temp1 == s2 && temp2 == s1){
             return true;
         }
